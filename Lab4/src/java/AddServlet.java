@@ -40,8 +40,10 @@ public class AddServlet extends HttpServlet {
                 }
                 listPerson.put(intKey, person);
                 request.setAttribute("listPerson", listPerson);
+                System.out.println("AddServlet.doGet()");
             } catch (NumberFormatException e) {
-
+                System.out.println("AddServlet.Exception()");
+                e.printStackTrace();
             }
         }
 
