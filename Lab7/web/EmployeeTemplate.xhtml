@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="./css/default.css"/>
+        <h:outputStylesheet name="./css/tableLayout.css"/>
+        <title>Facelets Template</title>
+        <style>
+            td.page-header{
+                color: red;
+                font-size: 22px;
+                font-weight: bold;
+                padding: 10px;    
+                text-align: center;
+            }            
+            table, th, td {
+                border: 2px solid black;                
+            }
+            td.center{
+                text-align: center;
+            }
+            .fullwidth{
+                width:100%;
+                text-align: left;                
+            }
+            td.float-top{
+                vertical-align: top;
+            }
+
+        </style>
+    </h:head>
+
+    <h:body>
+        <table cellspacing="10px">
+            <tr>
+                <td colspan="2" class="page-header">Employees of ACME Inc.</td>
+            </tr>
+            <tr>
+                <td id="left">
+                    <ui:insert name="left"></ui:insert>
+                </td>
+                <td id="content">
+                    <ui:insert name="content"></ui:insert>
+                </td>
+            </tr>
+        </table>
+    </h:body>
+
+</html>
