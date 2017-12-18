@@ -7,69 +7,44 @@
 
     <h:head>
         <title>Main</title>
-        <style>
-            td.page-header{
-                color: red;
-                font-size: 22px;
-                font-weight: bold;
-                padding: 10px;    
-                text-align: center;
-            }                       
-            table, th, td {
-                border: 1px solid black;                
-            }
-            td.center{
-                text-align: center;
-            }
-            .fullwidth{
-                width:100%;
-                text-align: left;                
-            }
-            td.float-top{
-                vertical-align: top;
-            }
-
-        </style>
-
     </h:head>
     <h:body>     
-        <h:form>
-            <ui:composition template="EmployeeTemplate.xhtml">            
-                <ui:define name="left">               
-                    <h:dataTable styleClass="fullwidth" value="#{employeeLogic.empList}" var="selEmp">
-                        <h:column>    				                       
-                            <h:commandLink value="#{employeeLogic.selEmp.name}" action="#{employeeLogic.getInfo()}">
-                                <f:param name="selId"  value="#{employeeLogic.selEmp.id}" />
-                                <f:param name="selName"  value="#{employeeLogic.selEmp.name}" />
-                                <f:param name="selPhone"  value="#{employeeLogic.selEmp.phone}" />
-                                <f:param name="selSalary"  value="#{employeeLogic.selEmp.salary}" />
-                            </h:commandLink>                        
-                        </h:column>                    
-                    </h:dataTable>                
-                    <h:commandButton value="ShowAll" action="#{employeeLogic.showAll()}" />                                
-                </ui:define>
-                <ui:define name="content">
-                    <table class="fullwidth">
-                        <tr>
-                            <td>ID</td>
-                            <td>#{employeeLogic.selEmp.id}</td>
-                        </tr>
-                        <tr>
-                            <td>Name</td>
-                            <td>#{employeeLogic.selEmp.name}</td>
-                        </tr>
-                        <tr>
-                            <td>Phone</td>
-                            <td>#{employeeLogic.selEmp.phone}</td>
-                        </tr>
-                        <tr>
-                            <td>Salary</td>
-                            <td>#{employeeLogic.selEmp.salary}</td>
-                        </tr>
-                    </table>  
-                </ui:define>
-            </ui:composition>
-        </h:form>
+        <ui:composition template="EmployeeTemplate.xhtml">            
+            <ui:define name="left">               
+                <h:dataTable styleClass="fullwidth" value="#{employeeLogic.empList}" var="selEmp">
+                    <h:column>    				                       
+                        <h:commandLink value="#{employeeLogic.selEmp.name}" action="#{employeeLogic.getInfo()}">
+                            <f:param name="selId"  value="#{employeeLogic.selEmp.id}" />
+                            <f:param name="selName"  value="#{employeeLogic.selEmp.name}" />
+                            <f:param name="selPhone"  value="#{employeeLogic.selEmp.phone}" />
+                            <f:param name="selSalary"  value="#{employeeLogic.selEmp.salary}" />
+                        </h:commandLink>                        
+                    </h:column>                    
+                </h:dataTable>                
+                <h:commandButton value="ShowAll" action="#{employeeLogic.showAll()}" />                                
+            </ui:define>
+            <ui:define name="content">
+                <table class="fullwidth">
+                    <tr>
+                        <td>ID</td>
+                        <td>#{employeeLogic.selEmp.id}</td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td>#{employeeLogic.selEmp.name}</td>
+                    </tr>
+                    <tr>
+                        <td>Phone</td>
+                        <td>#{employeeLogic.selEmp.phone}</td>
+                    </tr>
+                    <tr>
+                        <td>Salary</td>
+                        <td>#{employeeLogic.selEmp.salary}</td>
+                    </tr>
+                </table>  
+            </ui:define>
+        </ui:composition>
+
 
     </h:body>
 </html>
