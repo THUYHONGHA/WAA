@@ -52,7 +52,7 @@ public class EmployeeLogic {
         Map<String, String> infos = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
         String selId = infos.get("selId");
         String selName = infos.get("selName");
-        String selPhone = infos.get("selhone");
+        String selPhone = infos.get("selPhone");
         double selSalary = Double.parseDouble(infos.get("selSalary"));
 
         this.selEmp.setId(selId);

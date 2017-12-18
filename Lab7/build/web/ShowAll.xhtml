@@ -8,14 +8,18 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
+
         <ui:composition template="EmployeeTemplate.xhtml">           
             <ui:define name="left">
-                <h:commandButton value="Back to Master-Details" action="#{employeeLogic.getInfo()}">
-                    <f:param name="selId"  value="#{employeeLogic.selEmp.id}" />
-                    <f:param name="selName"  value="#{employeeLogic.selEmp.name}" />
-                    <f:param name="selPhone"  value="#{employeeLogic.selEmp.phone}" />
-                    <f:param name="selSalary"  value="#{employeeLogic.selEmp.salary}" />
-                </h:commandButton>
+                <h:form style="align-items:  center">
+                    <h:commandButton value="Back to Master-Details" action="#{employeeLogic.getInfo()}">
+                        <f:param name="selId"  value="#{employeeLogic.selEmp.id}" />
+                        <f:param name="selName"  value="#{employeeLogic.selEmp.name}" />
+                        <f:param name="selPhone"  value="#{employeeLogic.selEmp.phone}" />
+                        <f:param name="selSalary"  value="#{employeeLogic.selEmp.salary}" />
+                    </h:commandButton>
+                </h:form>
+
             </ui:define>
             <ui:define name="content">
                 <h:dataTable styleClass="fullwidth" value="#{employeeLogic.empList}" var="emp">
@@ -38,6 +42,8 @@
                 </h:dataTable>
             </ui:define>
         </ui:composition>
+
+
 
     </h:body>
 </html>
