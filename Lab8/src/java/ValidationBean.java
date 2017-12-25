@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
@@ -13,12 +14,39 @@ import javax.faces.bean.RequestScoped;
  */
 @ManagedBean
 @RequestScoped
-public class ValidationBean {
+public class ValidationBean implements Serializable{
 
-    /**
-     * Creates a new instance of ValidationBean
-     */
+    private String brand;
+    private String license;
+    private double price;
     public ValidationBean() {
     }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public String getLicense() {
+        return license;
+    }
+
+    public void setLicense(String license) {
+        this.license = license;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
     
+    public String submit(){
+        return "carInfoResult";
+    }
 }
