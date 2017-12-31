@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>Event Demo</title>
+        <style>
+            table, th, td{ border: 1px solid} 
+        </style>
+    </h:head>
+    <h:body>
+        <h:form>
+            Airline: <h:selectOneMenu valueChangeListener="#{airlinesBean.airlineChange}" onchange="submit()"> 
+                <f:selectItem itemValue="All" itemLabel="All"/>
+                <f:selectItem itemValue="KLM" itemLabel="KLM"/>
+                <f:selectItem itemValue="NorthWest" itemLabel="NorthWest"/>
+                <f:selectItem itemValue="United Airlines" itemLabel="United Airlines"/>
+            </h:selectOneMenu>
+            <br/> <br/>
+
+            <h:dataTable value="#{airlinesBean.flightByAirline}" var="info">
+                <h:column>
+                    <f:facet name="header">Departure</f:facet>
+                        #{info.departure}
+                </h:column> 
+                <h:column>
+                    <f:facet name="header">Destination</f:facet>
+                        #{info.destination}
+                </h:column> 
+                <h:column>
+                    <f:facet name="header">Departure Time</f:facet>
+                    <h:outputText value="#{info.depTime}">
+                        <f:convertDateTime pattern="MM/dd/yy"/>
+                    </h:outputText>
+                </h:column> 
+                <h:column>
+                    <f:facet name="header">Airline</f:facet>
+                        #{info.airline}
+                </h:column> 
+                <h:column>
+                    <f:facet name="header">Price</f:facet>
+                    <h:outputText value="#{info.price}">
+                        <f:convertNumber minFractionDigits="2"/>
+                    </h:outputText>
+                </h:column> 
+            </h:dataTable>
+
+
+
+
+        </h:form>
+    </h:body>
+</html>
+
