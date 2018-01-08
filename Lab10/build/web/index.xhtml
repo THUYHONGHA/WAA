@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:corejsf="http://corejsf.com">
+
+    <h:head>
+        <title>Spinner</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            Please enter your credit card expiration date <br/><br/>
+            <h:panelGrid columns="2">
+                Month <corejsf:spinner value="#{creditCardInfo.month}" minimum="1" maximum="12" size="3"/> 
+                Year <corejsf:spinner value="#{creditCardInfo.year}" minimum="2000" maximum="2100" size="5"/> 
+            </h:panelGrid>
+            <br/>
+            <h:commandButton value="Next" action="#{creditCardInfo.next()}"></h:commandButton>
+
+        </h:form>
+    </h:body>
+</html>
+
