@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Your Cart</title>
+    </h:head>
+    <h:body>
+        <div style="width: 50%"><h2 style="text-align: center; color: red">Shoppingcart</h2></div>
+        <h:form>
+            <h:dataTable value="#{shoppingManagedBean.cartList}" var="cl"
+                         border="1" style="border-collapse: separate" cellpadding="3" width="50%">
+                <h:column>
+                    <f:facet name="header"><b>product code</b></f:facet> 
+                        #{cl.product.productId}
+                </h:column> 
+                <h:column>
+                    <f:facet name="header"><b>product name</b></f:facet>
+                        #{cl.product.productName}
+                    <f:facet name="footer">Total price</f:facet>
+                </h:column>
+                <h:column>
+                    <f:facet name="header"><b>price</b></f:facet>
+                    <h:outputText value="#{cl.product.productPrice}">
+                        <f:convertNumber pattern="#0.00"/>
+                    </h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header"><b>quantity</b></f:facet>
+                        #{cl.quantity}                   
+                </h:column>
+                <h:column>
+                    <f:facet name="header"><b>total price</b></f:facet>
+                    <h:outputText value="#{cl.product.productPrice * cl.quantity}">
+                        <f:convertNumber pattern="#0.00"/>
+                    </h:outputText>
+                    <f:facet name="footer">
+                        <h:outputText value="#{shoppingManagedBean.sumTotalPrice}">
+                            <f:convertNumber minFractionDigits="2" />
+                        </h:outputText>
+                    </f:facet>
+                </h:column>
+                <h:column>
+                    <h:commandButton action="#{shoppingManagedBean.removeFromCart}" value="remove from cart">
+                        <f:param name="productId"  value="#{cl.product.productId}" />                        
+                    </h:commandButton>
+                </h:column>
+            </h:dataTable>
+
+
+
+            <br/>
+            <h:link outcome="shop" value="Continue shopping"/>
+        </h:form>
+    </h:body>
+</html>
+
+
